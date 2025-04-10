@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1,
+      "name": "Honda City",
+      "brand": "Honda",
+      "fuel": "Petrol",
+      "seats": 5,
+      "price": 1200000,
+      "image": "https://link-to-image"
+    },
+    {
+      "id": 2,
+      "name": "Toyota Innova",
+      "brand": "Toyota",
+      "fuel": "Diesel",
+      "seats": 7,
+      "price": 1800000,
+      "image": "https://link-to-image"
+    }
+  ]
+  
