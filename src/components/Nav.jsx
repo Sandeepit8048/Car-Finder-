@@ -29,11 +29,11 @@ const Nav = () => {
 
   return (
     <>
-      <nav className="bg-white shadow-md sticky top-0 z-50">
+      < nav className="bg-white shadow-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex justify-between w-full md:w-auto items-center">
             <div className="text-2xl font-bold text-gray-800">
-              <Link to="/">TaskFlow</Link>
+              <Link to="/">Car-Find</Link>
             </div>
             <div className="md:hidden">
               <button onClick={() => setIsOpen(!isOpen)}>
@@ -43,9 +43,8 @@ const Nav = () => {
           </div>
 
           <div className="hidden md:flex space-x-6">
-            <Link to="/" className="text-gray-700 hover:text-blue-500 transition">Home</Link>
+            <Link to="/" className="text-gray-700 hover:text-blue-600   transition">Home</Link>
             <Link to="/alltasks" className="text-gray-700 hover:text-blue-500 transition">All Tasks</Link>
-            <Link to="/about" className="text-gray-700 hover:text-blue-500 transition">About</Link>
           </div>
 
           <div className="flex items-center gap-2 w-full md:w-auto">
@@ -69,7 +68,6 @@ const Nav = () => {
           <div className="md:hidden px-4 pb-3 space-y-2">
             <Link to="/" className="block text-gray-700 hover:text-blue-500">Home</Link>
             <Link to="/alltasks" className="block text-gray-700 hover:text-blue-500">All Tasks</Link>
-            <Link to="/about" className="block text-gray-700 hover:text-blue-500">About</Link>
           </div>
         )}
       </nav>

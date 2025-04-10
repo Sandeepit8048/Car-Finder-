@@ -9,7 +9,7 @@ import EditTodo from "../components/EditTool";
 import { deleteTask, setFilter } from "../redux/TaskSlice";
 import { Toaster } from 'react-hot-toast';
 import toast from 'react-hot-toast';
-import Nav from "../components/Nav";
+// import Nav from "../components/Nav";
 import { Link } from "react-router-dom";
 
 function AllTasks() {
@@ -65,8 +65,8 @@ function AllTasks() {
     });
 
     return (
-        <div className="taskmanager p-4 ">
-            <Nav />
+        <div className="taskmanager p-4">
+            {/* <Nav /> */}
             <div className="flex flex-wrap justify-between items-center mb-4">
                 <div className="text-xl md:text-2xl font-bold">Task Manager</div>
                 <button onClick={() => setisAddboxopen(true)} className="flex items-center gap-2 bg-black text-white px-4 py-2 rounded-lg">
@@ -78,18 +78,20 @@ function AllTasks() {
             {/* Dashboard View */}
             <div className="grid grid-cols-1 md:grid-cols-8 gap-4">
                 <div className="col-span-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {[{ title: "Todo", color: "blue-400", data: todoTasks },
+                    {[{ title: "Wishlist", color: "blue-400", data: todoTasks },
                       { title: "Pending", color: "orange-400", data: pendingTasks },
                       { title: "Completed", color: "green-400", data: completedTasks }].map(({ title, color, data }) => (
-                        <div key={title} className="bg-white rounded-lg shadow">
-                            <div className={`p-4 bg-${color} rounded-t-lg flex justify-between items-center`}>
-                                <h1 className="text-xl text-white">{title}</h1>
-                                {title === "Todo" && <IoMdAdd size={20} className="bg-black text-white rounded-full cursor-pointer" onClick={() => setisAddboxopen(true)} />}
+                        <div key={title} className=" rounded-lg shadow">
+                            <div className={`p-4 rounded-t-lg flex justify-between items-center font-bold bg-${color} `}>
+                            
+                                <h1 className="text-xl">{title}</h1>
+                                {title === "Wishlist" && <IoMdAdd size={20} className=" rounded-full cursor-pointer" onClick={() => setisAddboxopen(true)} />}
                             </div>
                             <div className="p-4 overflow-auto max-h-96">
+                                
                                 {data.map((task) => (
                                     <div key={task.id} className="border rounded-md p-3 mb-3 shadow-sm hover:shadow-lg">
-                                        <h2 className="text-lg font-semibold">{task.task}</h2>
+                                        <h2 className="text-lg font-semibold ">{task.task}</h2>
                                         <div className="flex justify-between mt-3 text-sm">
                                             <span>{formatDate(task.dueDate)}</span>
                                             <div className="flex gap-2">
@@ -102,6 +104,7 @@ function AllTasks() {
                             </div>
                         </div>
                     ))}
+                    
                 </div>
 
                 {/* Analytics */}

@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTask } from '../redux/TaskSlice';
 import { MdPlaylistAdd } from "react-icons/md";
-// import toast, { Toaster } from 'react-hot-toast';
 import { Toaster } from 'react-hot-toast';
 import toast from 'react-hot-toast';
 
@@ -15,12 +14,22 @@ const AddTaskDialog = ({ isOpen, onClose }) => {
     const dispatch = useDispatch();
 
     const handleAddTask = () => {
-        if (taskName.trim()) {
-            dispatch(addTask({ id: Date.now(), task: taskName, status: taskStatus, dueDate: taskDue }));
-            onClose();
-            toast.success("Task Added Successfully...")
+        if (!taskName.trim() || !taskDue || !taskStatus) {
+            toast.error("Please fill in all the fields");
+            return;
         }
+    
+        dispatch(addTask({
+            id: Date.now(),
+            task: taskName,
+            status: taskStatus,
+            dueDate: taskDue,
+        }));
+    
+        onClose();
+        toast.success("Task Added Successfully...");
     };
+    ;
 
     return (
         <motion.div
@@ -74,7 +83,7 @@ const AddTaskDialog = ({ isOpen, onClose }) => {
                         value={taskStatus}
                         onChange={(e) => setTaskStatus(e.target.value)}
                     >
-                        <option value="Todo">Todo</option>
+                        <option value="Todo">Wishlist </option>
                         <option value="Pending">Pending</option>
                         <option value="Completed">Completed</option>
                     </select>

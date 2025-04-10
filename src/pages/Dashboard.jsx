@@ -1,44 +1,51 @@
 import React from 'react';
 import Nav from '../components/Nav';
+import img from '../assets/0x0.webp';
+import img1 from '../assets/Creta.jpg';
+import img2 from '../assets/images.jpeg';
+import img3 from '../assets/land-cruiser.jpg';
+import img4 from '../assets/SUVs-2.webp';  
+
+
 
 const cardData = [
   {
-    title: 'Track Your Tasks',
+    title: 'Ferrari',
     description: 'Easily manage your daily tasks and stay productive.',
-    image: 'https://images.unsplash.com/photo-1584697964403-46031feadb4f',
+    image: img,
   },
   {
-    title: 'Analyze Performance',
+    title: 'Honda',
     description: 'See how you’re progressing with insightful analytics.',
-    image: 'https://images.unsplash.com/photo-1607746882042-944635dfe10e',
+    image: img1,
   },
   {
-    title: 'Stay Organized',
+    title: 'Royal rose',
     description: 'Organize tasks by category and priority levels.',
-    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4',
+    image: img2,
   },
   {
-    title: 'Collaborate Easily',
+    title: 'Fortuner',
     description: 'Share tasks with team members and boost teamwork.',
-    image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d',
+    image: img3,
   },
   {
-    title: 'Access Anywhere',
+    title: 'TATA',
     description: 'Your tasks are with you on any device, anytime.',
-    image: 'https://images.unsplash.com/photo-1557683316-973673baf926',
+    image: img4,
   },
   {
-    title: 'Reminders & Alerts',
+    title: 'Ferrari',
     description: 'Never miss a deadline with timely reminders.',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f',
+    image: img,
   },
 ];
 
 function Dashboard() {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col overflow-hidden">
       <Nav />
-        <div className="p-4 grid grid-cols-1 sm:grid-cols-3 gap-3  mx-auto">
+      <div className="flex-1 overflow-y-auto p-4 grid grid-cols-1 sm:grid-cols-3 gap-3 ">
         {cardData.map((card, index) => (
           <div
             key={index}
@@ -55,9 +62,7 @@ function Dashboard() {
             </div>
           </div>
         ))}
-        </div>
-
-     
+      </div>
     </div>
   );
 }

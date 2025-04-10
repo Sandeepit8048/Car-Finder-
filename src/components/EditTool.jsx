@@ -3,9 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTask } from '../redux/TaskSlice';
 import { MdPlaylistAdd } from "react-icons/md";
-import { Toaster } from 'react-hot-toast';
 import toast from 'react-hot-toast';
-
 
 const AddTaskDialog = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
