@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import { carImages } from "../constant/carsImage";
+
+
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,6 +29,12 @@ const Nav = () => {
       console.error("Failed to fetch cars:", err);
     }
   };
+  useEffect(() => {
+    if (searchTerm.trim() === "") {
+      setCars([]);
+    }
+  }, [searchTerm]);
+  
 
   return (
     <>
@@ -48,13 +57,14 @@ const Nav = () => {
           </div>
 
           <div className="flex items-center gap-2 w-full md:w-auto">
-            <input
+          <input
               type="text"
               placeholder="Search cars..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="border border-gray-300 rounded-md px-3 py-1 w-full md:w-64"
             />
+
             <button
               onClick={handleSearch}
               className="bg-blue-600 text-white px-4 py-1.5 rounded-md hover:bg-blue-700 transition"
@@ -74,21 +84,22 @@ const Nav = () => {
 
       {/* Car Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-        {cars.map((car) => (
-          <div key={car.id} className="border shadow-md rounded-xl p-4 bg-white">
-            <h2 className="text-xl font-bold text-gray-800">{car.name}</h2>
-            <p className="text-gray-600">Make: {car.make}</p>
-            <p className="text-gray-600">Year: {car.year}</p>
-            <p className="text-gray-600">Model: {car.model}</p>
-            {car.image && (
-              <img
-                src={car.image}
-                alt={car.name}
-                className="mt-2 w-full h-40 object-cover rounded-md"
-              />
-            )}
-          </div>
-        ))}
+      {cars.map((car) => {
+  const randomImage = carImages[Math.floor(Math.random() * carImages.length)];
+  return (
+    <div key={car.id} className="border shadow-md rounded-xl p-4 bg-white">
+      <h2 className="text-xl font-bold text-gray-800">{car.name}</h2>
+      <p className="text-gray-600">Make: {car.make}</p>
+      <p className="text-gray-600">Year: {car.year}</p>
+      <p className="text-gray-600">Model: {car.model}</p>
+      <img
+        src={randomImage}
+        alt={car.name}
+        className="mt-2 w-full h-40 object-cover rounded-md"
+      />
+    </div>
+  );
+})}
       </div>
     </>
   );
