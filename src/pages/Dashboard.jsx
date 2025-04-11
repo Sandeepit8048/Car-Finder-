@@ -11,32 +11,32 @@ import img4 from '../assets/SUVs-2.webp';
 const cardData = [
   {
     title: 'Ferrari',
-    description: 'Easily manage your daily tasks and stay productive.',
+    description: 'Sports cars are engineered for speed, acceleration, and agility ',
     image: img,
   },
   {
     title: 'Honda',
-    description: 'See how you’re progressing with insightful analytics.',
+    description: 'That deep growl or sharp roar from a performance engine adds to the thrill ',
     image: img1,
   },
   {
     title: 'Royal rose',
-    description: 'Organize tasks by category and priority levels.',
+    description: 'Cars often come with cutting-edge tech — performance tracking, launch control',
     image: img2,
   },
   {
     title: 'Fortuner',
-    description: 'Share tasks with team members and boost teamwork.',
+    description: 'Whether on a track or winding roads, sports cars offer a precise, connected feel to the road.',
     image: img3,
   },
   {
     title: 'TATA',
-    description: 'Your tasks are with you on any device, anytime.',
+    description: 'It’s not just about speed — it’s the way it makes you feel. Every drive becomes an experience.',
     image: img4,
   },
   {
     title: 'Ferrari',
-    description: 'Never miss a deadline with timely reminders.',
+    description: 'Sleek, stylish, and bold — sports cars are often designed to turn heads and make a statement.',
     image: img,
   },
 ];
