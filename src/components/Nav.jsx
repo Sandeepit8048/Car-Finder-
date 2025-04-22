@@ -12,23 +12,38 @@ const Nav = () => {
 
   const handleSearch = async () => {
     try {
-        const res = await fetch("https://cors-anywhere.herokuapp.com/https://freetestapi.com/api/v1/cars", {
-            headers: {
-              'X-Requested-With': 'XMLHttpRequest'
-            }
-          });
-      const data = await res.json();
-      console.log(data);
-      
-      const filtered = data.filter((car) =>
-        car.make.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      
-      setCars(filtered);
+      // Fetch the data from the API with the proxy
+      const res = await fetch("https://cors-anywhere.herokuapp.com/https://freetestapi.com/api/v1/cars", {
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        }
+      });
+  
+      // Check if the response is successful (status 200)
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+  
+      // Check if the response is of type JSON
+      const contentType = res.headers.get('content-type');
+      if (contentType && contentType.includes('application/json')) {
+        const data = await res.json(); // Parse the response as JSON
+        console.log(data); // Log the fetched data
+  
+        // Filter cars based on search term
+        const filtered = data.filter((car) =>
+          car.make.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setCars(filtered);
+      } else {
+        const text = await res.text(); // Read as plain text if it's not JSON
+        console.error('Non-JSON response received:', text);
+      }
     } catch (err) {
       console.error("Failed to fetch cars:", err);
     }
   };
+  
   useEffect(() => {
     if (searchTerm.trim() === "") {
       setCars([]);
