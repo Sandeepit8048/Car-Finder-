@@ -6,11 +6,16 @@
     const [users, setUsers] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
 
-    useEffect(() => {
+       useEffect(() => {
         fetch('https://reqres.in/api/users?page=1')
-        .then(res => res.json())
-        .then(data => setUsers(data.data));
-    }, []);
+            .then(res => res.json())
+            .then(data => setUsers(data?.data || [])) // Fallback to empty array
+            .catch(err => {
+            console.error('Failed to fetch users:', err);
+            setUsers([]); // Safe fallback
+            });
+        }, []);
+
 
     return (
         <div className="min-h-screen bg-gray-100 p-6 relative">

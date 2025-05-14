@@ -55,6 +55,7 @@ const Nav = () => {
 
           <div className="hidden md:flex space-x-6">
             <Link to="/" className="text-gray-700 hover:text-blue-600   transition">Home</Link>
+            <Link to="/Home" className="text-gray-700 hover:text-blue-600   transition">Avatar</Link>
             <Link to="/alltasks" className="text-gray-700 hover:text-blue-500 transition">All Tasks</Link>
           </div>
 
@@ -79,6 +80,7 @@ const Nav = () => {
         {isOpen && (
           <div className="md:hidden px-4 pb-3 space-y-2">
             <Link to="/" className="block text-gray-700 hover:text-blue-500">Home</Link>
+            li
             <Link to="/alltasks" className="block text-gray-700 hover:text-blue-500">All Tasks</Link>
           </div>
         )}
