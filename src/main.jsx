@@ -8,6 +8,7 @@ import AllTasks from './pages/AllTasks.jsx'
 import { Provider } from 'react-redux'
 import store from './redux/Store.jsx'
 import Nav from './components/Nav.jsx'
+import Home from './pages/Home.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -17,6 +18,7 @@ createRoot(document.getElementById('root')).render(
             <Route path="Nav" element={<Nav/>} />
           <Route path="/" element={<Layout />}>
             <Route index element={<Dashboard />} />
+            <Route path="Home" element={<Home/>} />
             <Route path='alltasks' element={<AllTasks />} />
           </Route>
         </Routes>
